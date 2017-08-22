@@ -10,10 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822151635) do
+ActiveRecord::Schema.define(version: 20170822190640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boards", force: :cascade do |t|
+    t.integer  "exercise_id"
+    t.string   "card1"
+    t.string   "card2"
+    t.string   "card3"
+    t.string   "turn"
+    t.string   "river"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["exercise_id"], name: "index_boards_on_exercise_id", using: :btree
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.integer  "lesson_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "order"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["lesson_id"], name: "index_categories_on_lesson_id", using: :btree
+  end
+
+  create_table "exercises", force: :cascade do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.boolean  "live"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_exercises_on_category_id", using: :btree
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.integer  "exercise_id"
+    t.string   "name"
+    t.string   "card1"
+    t.string   "card2"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["exercise_id"], name: "index_players_on_exercise_id", using: :btree
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer  "exercise_id"
+    t.text     "statement"
+    t.text     "answer"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["exercise_id"], name: "index_questions_on_exercise_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,4 +89,9 @@ ActiveRecord::Schema.define(version: 20170822151635) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "boards", "exercises"
+  add_foreign_key "categories", "lessons"
+  add_foreign_key "exercises", "categories"
+  add_foreign_key "players", "exercises"
+  add_foreign_key "questions", "exercises"
 end
