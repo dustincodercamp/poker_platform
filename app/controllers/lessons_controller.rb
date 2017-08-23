@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.all.order(:order)
   end
 end
