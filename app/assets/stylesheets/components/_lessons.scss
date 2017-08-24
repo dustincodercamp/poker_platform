@@ -1,3 +1,8 @@
+body {
+  background-color: #005754;
+  color: #999999;
+}
+
 .header {
   text-align: center;
   padding: 30px;
@@ -24,14 +29,28 @@
   box-shadow: 0 1px 3px #666;
   transition: 1s all;
   position: relative;
+  border-radius: 10px;
 }
 
 .wrapper ul {
   margin-bottom: 80px;
 }
 
+.wrapper h2 {
+  color: #06213C;
+}
 
 .wrapper div:hover {
   background: white;
   top: -10px;
+}
+
+a {
+  text-decoration: none;
+  color: #999999;
+}
+a:hover {
+  text-decoration:none;
+  color: #06213C;
+  font-weight: bold;
 }
