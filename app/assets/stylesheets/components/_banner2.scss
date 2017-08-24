@@ -1,7 +1,7 @@
-.banner {
-  color: white;
+.banner2 {
+  color: #06213C;
   text-align: center;
-  height: calc(100vh - 70px);
+  min-height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   background-repeat: no-repeat;
@@ -9,31 +9,33 @@
   align-items: center;
   justify-content: center;
   background-image: 100vh;
-  background-position-y: -150px;
+  background-color: #005754;
 }
 
-.banner-content {
-margin-left: 50%;
-margin-top: -5%;
+.banner-content2 {
+margin: 0 auto;
 }
 
-.banner h1 {
+.banner2 h1 {
   font-size: 50px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
-.banner p {
+.banner2 p {
   font-size: 25px;
   font-weight: lighter;
   color: rgb(255, 255, 255);
   opacity: 0.6;
-  margin-bottom: 30px;
+  margin-bottom: 30%;
   width: 40%;
   margin: 0 auto;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .btn-primary {
   border-radius: 10px;
-  margin-top: 40px;
+  margin-top: 5%;
+  color: #06213C;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
