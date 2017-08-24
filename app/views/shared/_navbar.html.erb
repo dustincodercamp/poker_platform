@@ -11,13 +11,7 @@
 
       <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
 
-
-      <!-- Links when logged in -->
-      <%= link_to "Home", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Lessons", lessons_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Upgrade", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
-      <!-- Avatar with dropdown menu -->
+    <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
@@ -40,6 +34,13 @@
           </ul>
         </div>
       </div>
+      <!-- Links when logged in -->
+
+      <%= link_to "Home", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Lessons", lessons_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Upgrade", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
+
     <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
