@@ -5,11 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Lesson.destroy_all
+
 lesson1 = Lesson.create(title: 'Poker Basics')
 lesson2 = Lesson.create(title: 'Understanding further')
 lesson3 = Lesson.create(title: 'Advanced')
-
-
 
 # LESSON #1 === POKER BASICS ===
 category1 = Category.new(name: "How to play", description: "Not yet")

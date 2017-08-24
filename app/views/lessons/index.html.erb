@@ -1,42 +1,16 @@
-
 <div class="header">
   <h1>Select your level</h1>
   <h4>Based on your knowledge and experience</h4>
 </div>
 
-<% @lessons.each do |lesson| %>
-  <div class="wrapper">
-    <div>
-      <h2>Flop</h2>
-      <h4>Poker basics</h4>
-      <ul>
-        <li>How to play</li>
-        <li>Hand rankings</li>
-        <li>Player positions</li>
-        <li>Betting rounds</li>
-      </ul>
-    </div>
 
+<div class="wrapper">
+  <% @lessons.each do |lesson| %>
     <div>
-      <h2>Flop</h2>
-      <h4>Poker basics</h4>
-      <ul>
-        <li>How to play</li>
-        <li>Hand rankings</li>
-        <li>Player positions</li>
-        <li>Betting rounds</li>
-      </ul>
+      <h2><%= lesson.title %></h2>
+      <% lesson.categories.order(:order).each do |category| %>
+        <p style="text-align: left;"><%= image_tag("club_suit.png", width: 25, height: 25) %><span style="margin-left: 20px;"><%= category.name %></span></p>
+      <% end %>
     </div>
-
-    <div>
-      <h2>Flop</h2>
-      <h4>Poker basics</h4>
-      <ul>
-        <li>How to play</li>
-        <li>Hand rankings</li>
-        <li>Player positions</li>
-        <li>Betting rounds</li>
-      </ul>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

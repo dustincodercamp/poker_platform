@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'exercises/show'
 
-  get 'categories/show'
+  resources :categories, only: :show
+  resources :lessons, only: :index
 
-  get 'lessons/index'
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
