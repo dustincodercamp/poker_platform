@@ -30,3 +30,4 @@ end
 gem 'omniauth-facebook'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
+gem 'seed_dump'
