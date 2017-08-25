@@ -1,0 +1,40 @@
+.banner3 {
+  color: white;
+  text-align: center;
+  min-height: 100vh;
+  min-width: 100%;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-color: black;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  background-position: 48% 0;
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  background-image: 100vh;
+
+}
+
+.banner-content3 {
+  margin-top: 15%;
+  margin-bottom: -4%;
+  margin-right: 55%;
+}
+
+.banner3 h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  width: 55%;
+  margin: 0 auto;
+}
+.banner3 p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+  margin-bottom: 30px;
+  width: 45%;
+  margin: 0 auto;
+  margin-top: 6%;
+}
