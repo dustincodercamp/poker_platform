@@ -1,5 +1,7 @@
+User.delete_all
+
 User.create!([
-  {email: "yo_respek@yahoo.com", encrypted_password: "$2a$11$Hcdp.qmz9sPAo4KV7O0VOO12uzTe6mIdp.8Q9EeCi9oMXQQocQPYO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2017-08-23 15:17:52", last_sign_in_at: "2017-08-23 14:40:06", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", provider: "facebook", uid: "10101104277201649", facebook_picture_url: "https://graph.facebook.com/v2.6/10101104277201649/picture?type=square", first_name: "Dustin", last_name: "Cotcamp", token: "EAAHCLBGsCjIBADmxPM67BVzFfhh7BAlDR4TATXZBjHWKnwYJqyRdflr9yUK6M0rZA39gbQO4ymtUZB4iRuicI1ZAp7QrUgrYAnNTmJwZB9d7zUHxw0OZCRApYHkU84FhHBMe6R4ad19tm0nPbBt1WeQI4lbCCcJdPLt2LKpLbjpAZDZD", token_expiry: "2017-10-22 14:40:07", admin: true}
+  {email: "dustin@gmail.com", password: "123456", first_name: "Dustin", last_name: "Cotcamp", admin: true}
 ])
 Category.create!([
   {lesson_id: 7, name: "Entering the pot", description: "Understanding the types of starting hands you receive.", order: nil},
