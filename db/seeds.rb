@@ -1,30 +1,35 @@
+User.delete_all
+
 User.create!([
-  {email: "amana_arthur@hotmail.com", encrypted_password: "$2a$11$rJQCbV2KeslgWMBkM/sVxe4QoOArN3sp.pD8JIIMNjONPWlGyyFKO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 9, current_sign_in_at: "2017-08-25 17:51:41", last_sign_in_at: "2017-08-25 15:18:36", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", provider: "facebook", uid: "10155717319451908", facebook_picture_url: "https://graph.facebook.com/v2.6/10155717319451908/picture?type=square", first_name: "Amana", last_name: "Arthur", token: "EAAHCLBGsCjIBAN02PV5yjvCyQ8s8orA0gp6sH105kgYh181FIlNGN6EBZA0PMZCXj1AAFe9Tc2UCeZAmmsdIqeFIvldnU9DtwoI6AbHj7uijcaP5ePVvRH3KEUaxSkmHxI1BNKgxSeXgutwgsAYTiw5LDNzIVoZBkbilAqL9MQZDZD", token_expiry: "2017-10-24 12:33:55", admin: true}
-])
-Category.create!([
-  {lesson_id: 7, name: "How to play", description: "Not yet", order: nil},
-  {lesson_id: 7, name: "Hand Rankings", description: "Not yet", order: nil},
-  {lesson_id: 7, name: "Player Positions", description: "Not yet", order: nil},
-  {lesson_id: 8, name: "How to play", description: "Not yet", order: nil},
-  {lesson_id: 8, name: "Hand Rankings", description: "Not yet", order: nil},
-  {lesson_id: 8, name: "Player Positions", description: "Not yet", order: nil},
-  {lesson_id: 9, name: "How to play", description: "Not yet", order: nil},
-  {lesson_id: 9, name: "Hand Rankings", description: "Not yet", order: nil},
-  {lesson_id: 9, name: "Player Positions", description: "Not yet", order: nil}
-])
-Exercise.create!([
-  {category_id: 7, name: "Not yey", live: true},
-  {category_id: 7, name: "Not yey", live: true},
-  {category_id: 7, name: "Not yey", live: true},
-  {category_id: 10, name: "Not yey", live: true},
-  {category_id: 10, name: "Not yey", live: true},
-  {category_id: 10, name: "Not yey", live: true},
-  {category_id: 13, name: "Not yey", live: true},
-  {category_id: 13, name: "Not yey", live: true},
-  {category_id: 13, name: "Not yey", live: true}
+  {email: "dustin@gmail.com", password: "123456", first_name: "Dustin", last_name: "Cotcamp", admin: true}
 ])
 Lesson.create!([
-  {title: "Poker Basics", order: nil},
-  {title: "Understanding further", order: nil},
-  {title: "Advanced", order: nil}
+  {title: "Poker Basics", order: 1, id: 1},
+  {title: "Understanding Further", order: 2, id: 2},
+  {title: "Advanced", order: 3, id: 3}
+])
+Category.create!([
+  {lesson_id: 2, name: "Entering the pot", description: "Understanding the types of starting hands you receive.", order: nil},
+  {lesson_id: 2, name: "Post-Flop Hand Evaluation", description: "Categorizing strength of your hand.", order: nil},
+  {lesson_id: 3, name: "Playing Position", description: "Understanding when to play certain hands because of your position at the table.", order: nil},
+  {lesson_id: 2, name: "Purposes of Betting", description: "Deciding when and why to make a bet.", order: nil},
+  {lesson_id: 3, name: "Bet Sizing", description: "Understanding bet sizes in relation to board texture.", order: nil},
+  {lesson_id: 3, name: "Calculating outs", description: "Knowing the cards that will help strengthen your hand. ", order: nil},
+  {lesson_id: 3, name: "Reading Opponents", description: "Picking up on opponents tendencies.", order: nil},
+  {lesson_id: 1, name: "How To Play", description: "The basics about the most popular poker game, Texas Hold'em.", order: 1},
+  {lesson_id: 1, name: "Hand Rankings", description: "Knowing which hands beat which.", order: 2},
+  {lesson_id: 1, name: "Player Positions", description: "Understanding the flow of the game.", order: 3},
+  {lesson_id: 1, name: "Betting Rounds", description: "Information about betting structure.", order: 4},
+  {lesson_id: 2, name: "Starting Hands", description: "Knowing which hands to play before the flop.", order: 5}
+])
+Exercise.create!([
+  {category_id: 1, name: "Not yey", live: true},
+  {category_id: 2, name: "Not yey", live: true},
+  {category_id: 3, name: "Not yey", live: true},
+  {category_id: 4, name: "Not yey", live: true},
+  {category_id: 5, name: "Not yey", live: true},
+  {category_id: 6, name: "Not yey", live: true},
+  {category_id: 7, name: "Not yey", live: true},
+  {category_id: 8, name: "Not yey", live: true},
+  {category_id: 9, name: "Not yey", live: true}
 ])
