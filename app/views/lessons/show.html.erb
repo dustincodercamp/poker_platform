@@ -4,7 +4,7 @@
     <!-- here I need to add html structure to show video -->
     <%= render 'video', video: section.contentable %>
   <% elsif section.contentable.is_a? Quiz %>
-    <%= render 'quiz', quiz: section.contentable %>
+    <%#= render 'quiz', quiz: section.contentable %>
   <% elsif section.contentable.is_a? Content %>
     <%= render 'content', content: section.contentable %>
   <% end %>
