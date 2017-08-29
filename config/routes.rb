@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  resources :lessons, only: :index
+  resources :lessons, only: [:index, :show]
 
 
   devise_for :users,
