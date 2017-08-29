@@ -1,9 +1,16 @@
 <div class="card">
-  <h3><%= content.title %></h3>
-  <% content.content_items.each do |content_item| %>
-    <p><%= content_item.statement %></p>
-    <% if content_item.image.present? %>
-      <%= image_tag content_item.image %>
-    <% end %>
-  <% end %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= content.title %></h3>
+    </div>
+
+    <div class="panel-body">
+      <% content.content_items.each do |content_item| %>
+        <p><%= content_item.statement %></p>
+        <% if content_item.image.present? %>
+          <%= image_tag content_item.image, class: "img-responsive" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
