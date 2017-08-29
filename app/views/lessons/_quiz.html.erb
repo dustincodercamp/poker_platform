@@ -2,21 +2,28 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title"><%= quiz.title %></h3>
-
+    </div>
+    <div class="panel-body">
       <% quiz.quiz_statements.each do |quiz_statement| %>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><%= quiz_statement.statement %></h3>
+            <%= quiz_statement.statement %>
           </div>
 
           <div class="panel-body">
             <p><%= quiz_statement.question %></p>
             <hr>
-            <a href="" class="btn btn-primary">The answer</a>
-            <p><%= quiz_statement.answer %></p>
+            <div class="text-center">
+              <a href="" class="btn btn-primary">The answer</a>
+            </div>
+            <div>
+              <hr>
+              <p><%= quiz_statement.answer %></p>
+            </div>
           </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
