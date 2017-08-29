@@ -1,0 +1,9 @@
+<div class="card">
+  <h3><%= content.title %></h3>
+  <% content.content_items.each do |content_item| %>
+    <p><%= content_item.statement %></p>
+    <% if content_item.image.present? %>
+      <%= image_tag content_item.image %>
+    <% end %>
+  <% end %>
+</div>

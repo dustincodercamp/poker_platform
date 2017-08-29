@@ -1,1 +1,12 @@
 <h1>Welcome to <%= @lesson.title %>!</h1>
+<% @lesson.sections.each do |section| %>
+  <% if section.contentable.is_a? Video %>
+    <!-- here I need to add html structure to show video -->
+    <%= render 'video', video: section.contentable %>
+  <% elsif section.contentable.is_a? Quiz %>
+    <%= render 'quiz', quiz: section.contentable %>
+  <% elsif section.contentable.is_a? Content %>
+    <%= render 'content', content: section.contentable %>
+  <% end %>
+<% end %>
+
