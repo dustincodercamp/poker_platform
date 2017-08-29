@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823160820) do
+ActiveRecord::Schema.define(version: 20170828204558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,23 +27,28 @@ ActiveRecord::Schema.define(version: 20170823160820) do
     t.index ["exercise_id"], name: "index_boards_on_exercise_id", using: :btree
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.integer  "lesson_id"
-    t.string   "name"
-    t.text     "description"
+  create_table "content_items", force: :cascade do |t|
+    t.text     "statement"
+    t.string   "image"
+    t.integer  "content_id"
+    t.boolean  "clickable"
     t.integer  "order"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["lesson_id"], name: "index_categories_on_lesson_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["content_id"], name: "index_content_items_on_content_id", using: :btree
+  end
+
+  create_table "contents", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "exercises", force: :cascade do |t|
-    t.integer  "category_id"
     t.string   "name"
     t.boolean  "live"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_exercises_on_category_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -72,6 +77,34 @@ ActiveRecord::Schema.define(version: 20170823160820) do
     t.index ["exercise_id"], name: "index_questions_on_exercise_id", using: :btree
   end
 
+  create_table "quiz_statements", force: :cascade do |t|
+    t.text     "statement"
+    t.text     "question"
+    t.text     "answer"
+    t.integer  "quiz_id"
+    t.integer  "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quiz_id"], name: "index_quiz_statements_on_quiz_id", using: :btree
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string   "contentable_type"
+    t.integer  "contentable_id"
+    t.integer  "lesson_id"
+    t.integer  "order"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["contentable_type", "contentable_id"], name: "index_sections_on_contentable_type_and_contentable_id", using: :btree
+    t.index ["lesson_id"], name: "index_sections_on_lesson_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -97,9 +130,17 @@ ActiveRecord::Schema.define(version: 20170823160820) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.string   "title"
+    t.text     "statement"
+    t.string   "url"
+    t.string   "thumbnail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "boards", "exercises"
-  add_foreign_key "categories", "lessons"
-  add_foreign_key "exercises", "categories"
   add_foreign_key "players", "exercises"
   add_foreign_key "questions", "exercises"
+  add_foreign_key "sections", "lessons"
 end

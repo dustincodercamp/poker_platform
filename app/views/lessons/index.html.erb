@@ -8,11 +8,11 @@
   <% @lessons.each do |lesson| %>
     <div>
       <h2><%= lesson.title %></h2>
-      <% lesson.categories.order(:order).each do |category| %>
-        <%= link_to category_path(lesson.categories.first) do %>
-        <p style="text-align: left;"><%= image_tag("diamond.png", width: 25, height: 25) %><span style="margin-left: 20px;"><%= category.name %></span></p>
-        <%end%>
-      <% end %>
+      <%# lesson.categories.order(:order).each do |category| %>
+        <%#= link_to category_path(lesson.categories.first) do %>
+        <!-- <p style="text-align: left;"><%#= image_tag("diamond.png", width: 25, height: 25) %><span style="margin-left: 20px;"><%#= category.name %></span></p> -->
+        <%#end%>
+      <%# end %>
     </div>
   <% end %>
 </div>
