@@ -6,9 +6,9 @@
 
 <div class="wrapper">
   <% @lessons.each do |lesson| %>
-    <div>
+    <div style="background-image: url('<%= image_path("red-poker-chip.png") %>');">
       <h2><%= lesson.title %></h2>
-      <%= link_to 'Go to that lesson', lesson_path(lesson) %>
+      <%= link_to 'Start lesson', lesson_path(lesson) %>
       <%# lesson.categories.order(:order).each do |category| %>
         <%#= link_to category_path(lesson.categories.first) do %>
         <!-- <p style="text-align: left;"><%#= image_tag("diamond.png", width: 25, height: 25) %><span style="margin-left: 20px;"><%#= category.name %></span></p> -->
