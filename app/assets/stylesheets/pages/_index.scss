@@ -29,3 +29,15 @@ h1 {
 .hidden-answer {
   display: none;
 }
+
+.poker-table {
+  background: -webkit-linear-gradient(110deg, #134e5e, #71b280);
+  background: linear-gradient(110deg, #134e5e, #71b280);
+  border-radius: 100px;
+  margin: 0 auto;
+  width: 600px;
+}
+
+.poker-table h4 {
+  color: #FED095;
+}
