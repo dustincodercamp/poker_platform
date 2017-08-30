@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828204558) do
+ActiveRecord::Schema.define(version: 20170830160727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answer_options", force: :cascade do |t|
+    t.integer  "question_id"
+    t.text     "statement"
+    t.boolean  "correct"
+    t.text     "explanation"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["question_id"], name: "index_answer_options_on_question_id", using: :btree
+  end
 
   create_table "boards", force: :cascade do |t|
     t.integer  "exercise_id"
@@ -49,6 +59,9 @@ ActiveRecord::Schema.define(version: 20170828204558) do
     t.boolean  "live"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "lesson_id"
+    t.text     "statement"
+    t.index ["lesson_id"], name: "index_exercises_on_lesson_id", using: :btree
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -139,7 +152,9 @@ ActiveRecord::Schema.define(version: 20170828204558) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "answer_options", "questions"
   add_foreign_key "boards", "exercises"
+  add_foreign_key "exercises", "lessons"
   add_foreign_key "players", "exercises"
   add_foreign_key "questions", "exercises"
   add_foreign_key "sections", "lessons"
