@@ -11,7 +11,15 @@
             <div class="panel-body">
               <div class="panel panel-default">
                 <div class="panel-body">
-                  <%= exercise.statement %>
+                  <%= raw exercise.statement %>
+                </div>
+                <div class="panel-body text-center poker-table">
+                  <% exercise.boards.each do |board| %>
+                    <h4>Flop:</h4>
+                    <%= raw board.card1 %>
+                    <%= raw board.card2 %>
+                    <%= raw board.card3 %>
+                  <% end %>
                 </div>
                 <div class="panel-body">
                   <% exercise.questions.each do |question| %>
