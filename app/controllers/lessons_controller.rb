@@ -5,5 +5,6 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:id])
+    @next_lesson = Lesson.find_by(order: @lesson.order + 1)
   end
 end

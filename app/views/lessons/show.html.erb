@@ -3,16 +3,24 @@
   <div class="row">
     <div class="col-xs-12">
       <h1>Welcome to <%= @lesson.title %>!</h1>
-      <% @lesson.sections.each do |section| %>
+      <% @lesson.sections.each_with_index do |section, i| %>
         <% if section.contentable.is_a? Video %>
-          <!-- here I need to add html structure to show video -->
-          <%= render 'video', video: section.contentable %>
+          <%= render 'video', video: section.contentable, i: i, first: i.zero?, last: i+1 == @lesson.sections.count %>
         <% elsif section.contentable.is_a? Quiz %>
-          <%= render 'quiz', quiz: section.contentable %>
+          <%= render 'quiz', quiz: section.contentable, i: i, first: i.zero?, last: i+1 == @lesson.sections.count %>
         <% elsif section.contentable.is_a? Content %>
-          <%= render 'content', content: section.contentable %>
+          <%= render 'content', content: section.contentable, i: i, first: i.zero?, last: i+1 == @lesson.sections.count %>
         <% end %>
       <% end %>
+
+      <% if @next_lesson %>
+        <div class="panel panel-default">
+          <div class="panel-body text-center">
+            <%= link_to "Go to next lesson", lesson_path(@next_lesson), class:"btn btn-primary btn-lg" %>
+          </div>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>
