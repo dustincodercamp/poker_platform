@@ -1,8 +1,6 @@
 class ExercisesController < ApplicationController
-  def show
-    @exercise = Exercise.find(params[:id])
-    respond_to do |format|
-      format.js
-    end
+  def index
+    @lesson = Lesson.find(params[:lesson_id])
+    @exercises = @lesson.exercises
   end
 end

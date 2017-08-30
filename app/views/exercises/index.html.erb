@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Complete these exercises to win chips</h1>
+      <% @exercises.each do |exercise| %>
+        <div class="card">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= exercise.name %></h3>
+            </div>
+            <div class="panel-body">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <%= exercise.statement %>
+                </div>
+                <div class="panel-body">
+                  <% exercise.questions.each do |question| %>
+                    <div class="panel panel-default">
+                      <div class="panel-body text-center">
+                        <%= question.statement %>
+                      </div>
+
+                      <div class="panel-body">
+                        <div class="text-center">
+
+                          <% question.answer_options.shuffle.each do |answer_option|  %>
+                            <a href="" class="btn btn-primary btn-question-answer" data-correct="<%= answer_option.correct %>"><%= answer_option.statement %></a>
+                          <% end %>
+
+                        </div>
+                        <div class="text-center answer-option correct-answer collapse">
+                          <hr>
+                          <% question.answer_options.where(correct: true).each do |answer_option|  %>
+                            <p><%= answer_option.explanation %></p>
+                          <% end %>
+                        </div>
+                        <div class="text-center answer-option incorrect-answer collapse">
+                          <hr>
+                          <p>Wrong answer, lose 5 chips. Study more ;)</p>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
