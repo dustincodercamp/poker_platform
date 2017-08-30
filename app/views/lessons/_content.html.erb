@@ -1,4 +1,4 @@
-<div class="card">
+<div id="section_<%= i %>" class="card <%= 'opacity5' unless first %>">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title"><%= content.title %></h3>
@@ -17,4 +17,7 @@
       </div>
     </div>
   </div>
+  <% unless last %>
+    <p class='text-center'><a href="#section_<%= i + 1 %>" class='btn btn-primary next-section'>Next section</a></p>
+  <% end %>
 </div>

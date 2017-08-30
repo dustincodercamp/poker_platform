@@ -1,4 +1,4 @@
-<div class="card">
+<div id="section_<%= i %>" class="card <%= 'opacity5' unless first %>">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title"><%= quiz.title %></h3>
@@ -14,9 +14,9 @@
             <p><%= quiz_statement.question %></p>
             <hr>
             <div class="text-center">
-              <a href="" class="btn btn-primary">The answer</a>
+              <a href="" class="btn btn-primary the-answer">The answer</a>
             </div>
-            <div>
+            <div class="answer hidden-answer" >
               <hr>
               <p><%= quiz_statement.answer %></p>
             </div>
@@ -25,5 +25,8 @@
       <% end %>
     </div>
   </div>
+  <% unless last %>
+     <p class='text-center'><a href="#section_<%= i + 1 %>" class='btn btn-primary next-section'>Next section</a></p>
+   <% end %>
 </div>
 
