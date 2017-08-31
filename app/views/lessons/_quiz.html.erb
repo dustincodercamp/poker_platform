@@ -25,8 +25,10 @@
       <% end %>
     </div>
   </div>
-  <% unless last %>
-     <p class='text-center'><a href="#section_<%= i + 1 %>" class='btn btn-primary next-section'>Next section</a></p>
-   <% end %>
+  <div class='content'>
+    <% unless last %>
+       <p class='text-center'><a href="#section_<%= i + 1 %>" class='btn btn-primary next-section'>Next section</a></p>
+     <% end %>
+   </div>
 </div>
 

@@ -2,7 +2,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
     <h3 class="panel-title"><%= video.title %></h3>
-      <p><%= video.statement %></p>
+      <p class="margin-video"><%= video.statement %></p>
 
       <div class="embed-responsive embed-responsive-16by9">
         <iframe class="embed-responsive-item" src='https://www.youtube.com/embed/<%= video.url %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
@@ -10,7 +10,9 @@
 
     </div>
   </div>
-  <% unless last %>
-    <p class='text-center'><a href="#section_<%= i + 1 %>" class='btn btn-primary next-section'>Next section</a></p>
-  <% end %>
+  <div class='content'>
+    <% unless last %>
+      <p class='text-center'><a href="#section_<%= i + 1 %>" class='btn btn-primary next-section'>Next section</a></p>
+    <% end %>
+  </div>
 </div>
