@@ -6,9 +6,9 @@
 
     <div class="panel-body">
       <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel-body text-center">
           <% content.content_items.each do |content_item| %>
-            <p><%= content_item.statement %></p>
+            <p><%= raw content_item.statement %></p>
             <% if content_item.image.present? %>
               <%= image_tag content_item.image, class: "img-responsive" %>
             <% end %>

@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-xs-12">
       <h1>Welcome to <%= @lesson.title %>!</h1>
-      <% @lesson.sections.each_with_index do |section, i| %>
+      <% @lesson.sections.order(:order).each_with_index do |section, i| %>
         <% if section.contentable.is_a? Video %>
           <%= render 'video', video: section.contentable, i: i, first: i.zero?, last: i+1 == @lesson.sections.count %>
         <% elsif section.contentable.is_a? Quiz %>
