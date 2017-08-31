@@ -11,3 +11,20 @@
 }
 
 .opacity5 { opacity: .05; }
+
+.panel-body {
+  .btn-primary {
+    border-radius: 10px;
+    // margin-top: 40px;
+    background-color: #278d8a;
+    border-color: #278d8a;
+  }
+}
+
+.black-text {
+  color: black;
+}
+
+.panel-title {
+  padding: 1.2%;
+}
