@@ -13,13 +13,11 @@
         <% end %>
       <% end %>
 
-      <% if @next_lesson %>
-        <div class="panel panel-default">
-          <div class="panel-body text-center">
-            <%= link_to "Go to next lesson", lesson_path(@next_lesson), class:"btn btn-primary btn-lg" %>
-          </div>
+      <div class="panel panel-default">
+        <div class="panel-body text-center">
+          <%= link_to "Go to exercises", lesson_exercises_path(@lesson), class:"btn btn-primary btn-lg" %>
         </div>
-      <% end %>
+      </div>
 
     </div>
   </div>
