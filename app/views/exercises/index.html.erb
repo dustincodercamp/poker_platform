@@ -55,6 +55,16 @@
           </div>
         </div>
       <% end %>
+
+      <% if @next_lesson %>
+        <div class="panel panel-default">
+          <div class="panel-body text-center">
+            <%= link_to "Next lesson", lesson_path(@next_lesson), class:"btn btn-primary btn-lg" %>
+          </div>
+        </div>
+      <% else %>
+        <h2>Congratz, you finished!</h2>
+      <% end %>
     </div>
   </div>
 </div>
