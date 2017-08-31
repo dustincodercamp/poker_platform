@@ -1,5 +1,5 @@
 .banner {
-  color: white;
+  color: #FED095;
   text-align: center;
   height: calc(100vh - 70px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
@@ -12,9 +12,11 @@
   background-position-y: -150px;
 }
 
-.banner-content {
-margin-left: 50%;
-margin-top: -5%;
+@media (min-width: $screen-md-min) {
+  .banner-content {
+    margin-left: 50%;
+    margin-top: -5%;
+  }
 }
 
 .banner h1 {
@@ -22,15 +24,20 @@ margin-top: -5%;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
+
 .banner p {
   font-size: 25px;
   font-weight: lighter;
-  color: rgb(255, 255, 255);
+  color: #E9E8E3;
   opacity: 0.6;
   margin-bottom: 30px;
-  width: 40%;
   margin: 0 auto;
   margin-top: 10%;
+}
+@media (min-width: $screen-sm-min) {
+  .banner p {
+    width: 40%;
+  }
 }
 
 .banner {

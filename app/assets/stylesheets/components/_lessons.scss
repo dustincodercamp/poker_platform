@@ -12,15 +12,28 @@ body {
   width: 60%;
   margin: 0 auto;
   padding: 30px;
-  color: white;
+  color: #E9E8E3;
 }
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 100px;
-  padding: 135px;
+  grid-template-columns: 1fr;
   padding-top: 50px;
+  justify-items: center;
+  margin-top: -5%;
+}
+
+@media (min-width: $screen-sm-min) {
+  .wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .wrapper {
+    grid-gap: 100px;
+    padding: 135px;
+  }
 }
 
 .wrapper div {
@@ -67,8 +80,4 @@ a:hover {
   text-decoration:none;
   color: #E9E8E3;
   font-weight: bold;
-}
-
-.wrapper {
-
 }
