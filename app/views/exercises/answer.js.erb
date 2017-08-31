@@ -1,0 +1,11 @@
+var panel = $("#question-<%= @question_id %>");
+var div = panel.find(".answer-option").hide();
+
+<% if @answer_option.correct %>
+  div.html("<hr><p><%= @answer_option.explanation %></p>\
+    <p>You now have <%= current_user.chip_count %> chips!").fadeIn(800);
+    panel.find('input[type=submit]').attr('disabled', 'disabled');
+<% else %>
+  div.html("<hr><p>Wrong answer, lose 20 chips. Study more ;)</p>\
+    <p>You now have <%= current_user.chip_count %> chips!").fadeIn(800);
+<% end %>

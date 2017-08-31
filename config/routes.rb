@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :exercises, only: [:index]
   end
 
+  post 'answers/:answer_id', to: 'exercises#answer', as: 'answer'
 
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
