@@ -15,10 +15,16 @@
                 </div>
                 <div class="panel-body text-center poker-table">
                   <% exercise.boards.each do |board| %>
-                    <h4>Flop:</h4>
+                    <h4>Board</h4>
                     <%= raw board.card1 %>
                     <%= raw board.card2 %>
                     <%= raw board.card3 %>
+                    <% if board.turn %>
+                      <%= raw board.turn %>
+                    <% end %>
+                    <% if board.river %>
+                      <%= raw board.river %>
+                    <% end %>
                   <% end %>
                 </div>
                 <div class="panel-body">
@@ -28,24 +34,18 @@
                         <%= question.statement %>
                       </div>
 
-                      <div class="panel-body">
+                      <div class="panel-body" id="question-<%= question.id %>">
                         <div class="text-center">
 
                           <% question.answer_options.shuffle.each do |answer_option|  %>
-                            <a href="" class="btn btn-primary btn-question-answer" data-correct="<%= answer_option.correct %>"><%= answer_option.statement %></a>
+                            <%= form_tag answer_path(answer_option), remote: true, class: 'form-question', id: "answer-#{answer_option.id}" do %>
+                              <%= hidden_field_tag :question_id, question.id %>
+                              <%= submit_tag answer_option.statement, class: "btn btn-primary" %>
+                            <% end %>
                           <% end %>
 
                         </div>
-                        <div class="text-center answer-option correct-answer collapse">
-                          <hr>
-                          <% question.answer_options.where(correct: true).each do |answer_option|  %>
-                            <p><%= answer_option.explanation %></p>
-                          <% end %>
-                        </div>
-                        <div class="text-center answer-option incorrect-answer collapse">
-                          <hr>
-                          <p>Wrong answer, lose 5 chips. Study more ;)</p>
-                        </div>
+                        <div class="text-center answer-option"></div>
                       </div>
                     </div>
                   <% end %>
